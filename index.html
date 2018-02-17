@@ -33,11 +33,32 @@
 			document.body.appendChild( renderer.domElement );
 
 			// Setup and add object to scene
+			
 			var geometry = new THREE.BoxGeometry(100, 100, 100);
 			var material = new THREE.MeshLambertMaterial({color: 0xf3ffe2});
 			var cube = new THREE.Mesh(geometry, material);
-			cube.position.set(0, 0, -1000)
+			cube.position.set(0, 0, -1000);
 			scene.add(cube);
+
+			// 3D and Animated model
+
+			/* var loader = new THREE.JSONLoader();
+			loader.load('monkey_animated.json', handle_load);
+
+			var mixer;
+
+			function handle_load(geometry, materials){
+
+				var material = new THREE.MeshLambertMaterial({morphTargets: true});
+				var mesh = new THREE.Mesh(geometry, material);
+				scene.add(mesh);
+				mesh.position.z = -10;
+
+				mixer = new THREE.AnimationMixer(mesh);
+
+				var clip = THREE.AnimationClip.CreateFromMorphTargetSequence('talk', geometry.morphTargets, 20);
+				mixer.clipAction(clip).setDuration(1).play();
+			} */
 
 			// Add some lights
 
@@ -47,7 +68,18 @@
 			scene.add(pointLight);
 			
 			// Animate and render the scene
+			animate();
+
+			// var prevTime = Date.now();
+			
 			function animate() {
+
+				/* if (mixer) {
+					var time = Date.now();
+					mixer.update((time - prevTime) * 0.001);
+					prevTime = time;
+				} */
+
 				requestAnimationFrame( animate );
 
 				cube.rotation.x += 0.01;
@@ -55,7 +87,7 @@
 
 				renderer.render( scene, camera );				
 			}
-			animate();
+			
     </script>
 </body>
 </html>
