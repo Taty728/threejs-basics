@@ -1,6 +1,6 @@
 # Crear una escena básica.
 
-Para crear una escena básica que despliegue un objeto 3D en Web, podemos utilizar la librería de javascript Three.js
+Para crear una escena básica que muestre un objeto 3D en Web, podemos utilizar la librería de javascript [Three.js](https://threejs.org/)
 
 ## Estos son los pasos a seguir:
 
